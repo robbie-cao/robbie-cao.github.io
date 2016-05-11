@@ -5,6 +5,8 @@ date:   2016-05-10 13:08:53 +0800
 categories: markup
 ---
 
+h2. Heading
+
 <code>
 h1. level 1 heading
 </code>
@@ -25,6 +27,10 @@ h2=. level 2 heading
 h3>. level 3 heading
 
 h4<{color:red}. level 4 heading
+
+<hr>
+
+h2. Quote
 
 <code>
 bq. this is blockquoted text
@@ -47,24 +53,24 @@ fn2. footnote 2
 
 This text refernces a footnote[1]
 
-<code>
-# numbered list item 1
-</code>
-<code>
-# numbered list item 2
-</code>
-<code>
-* bulleted list first item
-</code>
-<code>
-* bulleted list second item
-</code>
+<hr>
+
+h2. List
+
+bc. \# numbered list item 1
+bc. \# numbered list item 2
+bc. \* bulleted list first item
+bc. \* bulleted list second item
 
 # numbered list item 1
 # numbered list item 2
 
 * bulleted list first item
 * bulleted list second item
+
+<hr>
+
+h2. Phrase Modifiers
 
 <code>
 _emphasis_
@@ -87,24 +93,23 @@ _emphasis_
 <code>
 ~subscript~
 </code>
-
-_emphasis_
-
-*strong*
-
-??citation??
-
--deleted text-
-
-+inserted text+
-
-^superscript^
-
-~subscript~
-
 <code>
 %span%
 </code>
+
+_emphasis_
+*strong*
+??citation??
+-deleted text-
++inserted text+
+^superscript^
+~subscript~
+%span%
+
+<hr>
+
+h2. Paragraph
+
 <code>
 p(class). paragraph with a classname
 </code>
@@ -130,8 +135,6 @@ p=. centered aligned paragraph
 p<>. justified text paragraph
 </code>
 
-%span%
-
 p(class). paragraph with a classname
 
 p(#id). paragraph with an ID
@@ -148,6 +151,10 @@ p=. centered aligned paragraph
 
 p<>. justified text paragraph
 
+<hr>
+
+h2. Table
+
 <code>
 | _. head | _. table | _. row |
 </code>
@@ -158,9 +165,13 @@ p<>. justified text paragraph
 | a       | table    | row 2  |
 </code>
 
-| _. head | _. table | _. row |
-| a       | table    | row 1  |
-| a       | table    | row 2  |
+|_. head |_. table |_. row |
+| a      | table   | row 1 |
+| a      | table   | row 2 |
+
+<hr>
+
+h2. Blocked Code
 
 <code>
 bc. 10 PRINT "I ROCK AT BASIC!"
@@ -177,6 +188,10 @@ p. A line with @printf@
 </code>
 
 p. A line with @printf@
+
+<hr>
+
+h2. Link
 
 <code>
 "Link to Textile on GitHub":https://github.com/textile
@@ -185,8 +200,15 @@ p. A line with @printf@
 !https://avatars2.githubusercontent.com/u/362604?v=3&s=200!
 </code>
 
+<hr>
+
 "Link to Textile on GitHub": https://github.com/textile
+
 !https://avatars2.githubusercontent.com/u/362604?v=3&s=200!
+
+<hr>
+
+h2. Abbreviation
 
 <code>
 ABBR(Abbreviation)
