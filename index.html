@@ -6,72 +6,72 @@ layout: null
 <!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
 <!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/github-dark.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+        <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+        <link rel="stylesheet" href="stylesheets/github-dark.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/script.js"></script>
 
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+        <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+        <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Tempus fugit!</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">Robbie Cao&#39;s Blog</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <!--[if 0]>
-          <a href="https://github.com/robbie-cao/robbie-cao.github.io/tarball/master" class="download-button tar"><span>Download</span></a>
-          <!--[endif]>
-          <a href="https://github.com/robbie-cao/robbie-cao.github.io/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/robbie-cao/robbie-cao.github.io" class="code">View on GitHub</a>
+        <div class="wrapper">
+            <header>
+                <h1 class="title">Tempus fugit!</h1>
+            </header>
+
+            <div id="container">
+                <p class="tagline">Robbie Cao&#39;s Blog</p>
+                <div id="main" role="main">
+                    <div class="download-bar">
+                        <div class="inner">
+                            <!--[if 0]>
+                            <a href="https://github.com/robbie-cao/robbie-cao.github.io/tarball/master" class="download-button tar"><span>Download</span></a>
+                            <![endif]-->
+                            <a href="https://github.com/robbie-cao/robbie-cao.github.io/zipball/master" class="download-button zip"><span>Download</span></a>
+                            <a href="https://github.com/robbie-cao/robbie-cao.github.io" class="code">View on GitHub</a>
+                        </div>
+                        <span class="blc"></span><span class="trc"></span>
+                    </div>
+                    <article class="markdown-body">
+                        <ul class="post-list">
+                            {% for post in site.posts %}
+                            <h2>
+                                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                            </h2>
+                            <p>{{ post.date | date: "%b %-d, %Y" }}</p>
+
+                            {% endfor %}
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+            <footer>
+                <div class="owner">
+                    <p><a href="https://github.com/robbie-cao" class="avatar"><img src="https://avatars0.githubusercontent.com/u/2521404?v=3&amp;s=60" width="48" height="48"></a> maintained by <a href="https://github.com/robbie-cao">robbie-cao</a></p>
+                </div>
+                <div class="creds">
+                    <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+                </div>
+            </footer>
         </div>
-        <span class="blc"></span><span class="trc"></span>
+
+        <div class="current-section">
+            <a href="#top">Scroll to Top</a>
+            <a href="https://github.com/robbie-cao/robbie-cao.github.io/tarball/master" class="tar">tar</a><a href="https://github.com/robbie-cao/test/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+            <p class="name"></p>
         </div>
-        <article class="markdown-body">
-            <ul class="post-list">
-                {% for post in site.posts %}
-                <h2>
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h2>
-                <p>{{ post.date | date: "%b %-d, %Y" }}</p>
 
-                {% endfor %}
-            </ul>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/robbie-cao" class="avatar"><img src="https://avatars0.githubusercontent.com/u/2521404?v=3&amp;s=60" width="48" height="48"></a> maintained by <a href="https://github.com/robbie-cao">robbie-cao</a></p>
-
-
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to Top</a>
-    <a href="https://github.com/robbie-cao/robbie-cao.github.io/tarball/master" class="tar">tar</a><a href="https://github.com/robbie-cao/test/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
-
-  
-</body>
+    </body>
