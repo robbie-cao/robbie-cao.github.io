@@ -57,10 +57,13 @@ This text refernces a footnote[1]
 
 h2. List
 
-bc. \# numbered list item 1
-bc. \# numbered list item 2
-bc. \* bulleted list first item
-bc. \* bulleted list second item
+bc. # numbered list item 1
+
+bc. # numbered list item 2
+
+bc. * bulleted list first item
+
+bc. * bulleted list second item
 
 # numbered list item 1
 # numbered list item 2
@@ -202,7 +205,7 @@ h2. Link
 
 <hr>
 
-"Link to Textile on GitHub": https://github.com/textile
+"Link to Textile on GitHub":https://github.com/textile
 
 !https://avatars2.githubusercontent.com/u/362604?v=3&s=200!
 
