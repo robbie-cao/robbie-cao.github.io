@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-# Test
-
-A reporistory for test git/github
-
-New line #1
-New line #2
-
-New line #3
-New line #6
-
-![Image](/images/piano_key.png)
-=======
 # robc.jekyll.blog
 
 [Robbie Cao](mailto: robbie.cao@gmail.com)'s Blog by Jekyll
@@ -43,5 +30,4 @@ textile_ext: "textile,txtl,tl"
 ## Contribution
 
 ## About Me
->>>>>>> remotes/ghio/master
 
