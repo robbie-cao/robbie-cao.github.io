@@ -8,7 +8,7 @@ categories: markup
 h1=. Source
 <hr>
 
-bc..
+<code>
 h1. level 1 heading
 
 h2=. level 2 heading
@@ -60,13 +60,19 @@ p<>. justified text paragraph
 | a       | table    | row 1  |
 | a       | table    | row 2  |
 
+bc.. 10 PRINT "I ROCK AT BASIC!"
+20 GOTO 10
+p.
+
+A line with @code@
+
 "Link to Textile GitHub":https://github.com/textile
 
 !https://avatars2.githubusercontent.com/u/362604?v=3&s=200!
 
 ABBR(Abbreviation)
 
-p.
+</code>
 
 h1=. Result
 <hr>
@@ -121,6 +127,12 @@ p<>. justified text paragraph
 | _. head | _. table | _. row |
 | a       | table    | row 1  |
 | a       | table    | row 2  |
+
+bc.. 10 PRINT "I ROCK AT BASIC!"
+20 GOTO 10
+p.
+
+A line with @code@
 
 "Link to Textile GitHub":https://github.com/textile
 
