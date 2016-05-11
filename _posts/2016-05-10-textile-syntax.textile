@@ -7,8 +7,11 @@ categories: markup
 
 <code>
 h1. level 1 heading
+<br>
 h2=. level 2 heading
+<br>
 h3>. level 3 heading
+<br>
 h4<{color:red}. level 4 heading
 </code>
 
