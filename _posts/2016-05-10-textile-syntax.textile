@@ -28,61 +28,168 @@ h4<{color:red}. level 4 heading
 
 <code>
 bq. this is blockquoted text
+</code>
+<code>
 fn1. footnote 1
+</code>
+<code>
 fn2. footnote 2
+</code>
+<code>
 This text refernces a footnote[1]
 </code>
 
+bq. this is blockquoted text
+
+fn1. footnote 1
+
+fn2. footnote 2
+
+This text refernces a footnote[1]
+
 <code>
 # numbered list item 1
+</code>
+<code>
 # numbered list item 2
+</code>
+<code>
 * bulleted list first item
+</code>
+<code>
 * bulleted list second item
 </code>
 
+# numbered list item 1
+# numbered list item 2
+
+* bulleted list first item
+* bulleted list second item
+
 <code>
 _emphasis_
+</code>
+<code>
 *strong*
+</code>
+<code>
 ??citation??
+</code>
+<code>
 -deleted text-
+</code>
+<code>
 +inserted text+
+</code>
+<code>
 ^superscript^
+</code>
+<code>
 ~subscript~
 </code>
 
+_emphasis_
+
+*strong*
+
+??citation??
+
+-deleted text-
+
++inserted text+
+
+^superscript^
+
+~subscript~
+
 <code>
 %span%
+</code>
+<code>
 p(class). paragraph with a classname
+</code>
+<code>
 p(#id). paragraph with an ID
+</code>
+<code>
 p{color:red}. paragrah with a CSS style
+</code>
+<code>
 p[fr]. paragraphe en français
+</code>
+<code>
 p<. right aligned paragraph
+</code>
+<code>
 p>. left aligned paragraph
+</code>
+<code>
 p=. centered aligned paragraph
+</code>
+<code>
 p<>. justified text paragraph
 </code>
 
+%span%
+
+p(class). paragraph with a classname
+
+p(#id). paragraph with an ID
+
+p{color:red}. paragrah with a CSS style
+
+p[fr]. paragraphe en français
+
+p<. right aligned paragraph
+
+p>. left aligned paragraph
+
+p=. centered aligned paragraph
+
+p<>. justified text paragraph
+
 <code>
 | _. head | _. table | _. row |
+</code>
+<code>
 | a       | table    | row 1  |
+</code>
+<code>
 | a       | table    | row 2  |
 </code>
 
+| _. head | _. table | _. row |
+| a       | table    | row 1  |
+| a       | table    | row 2  |
+
 <code>
 bc. 10 PRINT "I ROCK AT BASIC!"
+</code>
+<code>
 20 GOTO 10
 </code>
 
-<code>
-A line with @code@
-</code>
+bc. 10 PRINT "I ROCK AT BASIC!"
+20 GOTO 10
 
 <code>
-"Link to Textile GitHub":https://github.com/textile
+p. A line with @printf@
+</code>
+
+p. A line with @printf@
+
+<code>
+"Link to Textile on GitHub":https://github.com/textile
+</code>
+<code>
 !https://avatars2.githubusercontent.com/u/362604?v=3&s=200!
 </code>
+
+"Link to Textile on GitHub": https://github.com/textile
+!https://avatars2.githubusercontent.com/u/362604?v=3&s=200!
 
 <code>
 ABBR(Abbreviation)
 </code>
 
+ABBR(Abbreviation)
