@@ -32,6 +32,7 @@ gems:
     - jekyll-coffeescript
     - jekyll-paginate
     - jekyll-textile-converter
+    - jekyll-rst
     - jekyll-toc
     - jekyll-tagging
     - jekyll_figure
