@@ -4,6 +4,10 @@ title:  "Markdown Tricks"
 categories: markup
 ---
 
+# Contents
+
+{:toc}
+
 # Title
 
 ## Heading
