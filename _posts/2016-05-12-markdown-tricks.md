@@ -5,6 +5,7 @@ categories: markup
 ---
 
 # Contents
+{:.no_toc}
 
 {:toc}
 
@@ -25,6 +26,11 @@ Refer to [Chapter 3](#chapter-3)
 Refer to [Chapter 2](#chapter-2)
 
 ```
+# Contents
+{:.no_toc}
+
+{:toc}
+
 # Title
 
 ## Heading
