@@ -53,7 +53,7 @@ The following code does NOT work, reason unknown.
 
 ## Reference
 
-- [Favicon - Wiki](https://en.wikipedia.org/wiki/Favicon)
-- [Converting GIF's, PNG's and JPG's to .ICO files using Imagemagick](http://stackoverflow.com/questions/3185677/converting-gifs-pngs-and-jpgs-to-ico-files-using-imagemagick)
-- [Unable to set favicon using Jekyll and github pages](http://stackoverflow.com/questions/30551501/unable-to-set-favicon-using-jekyll-and-github-pages)
+- [Wiki - Favicon](https://en.wikipedia.org/wiki/Favicon)
+- [StackOverflow - Converting GIF's, PNG's and JPG's to .ICO files using Imagemagick](http://stackoverflow.com/questions/3185677/converting-gifs-pngs-and-jpgs-to-ico-files-using-imagemagick)
+- [StackOverflow - Unable to set favicon using Jekyll and github pages](http://stackoverflow.com/questions/30551501/unable-to-set-favicon-using-jekyll-and-github-pages)
 
