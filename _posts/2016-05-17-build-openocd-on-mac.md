@@ -46,11 +46,52 @@ $ git clone git://git.code.sf.net/p/openocd/code openocd
 
 ```
 $ cd openocd
-$ git checkout -b v0.9.0 v0.9.0
+$ git checkout -b v0.9.0-rc1 v0.9.0-rc1
 $ ./bootstrap
 $ ./configure --enable-maintainer-mode --disable-werror --disable-shared --enable-ft2232_ftd2xx
 $ make
 $ make install
+```
+
+## Issue
+
+There's error (as below) when building v0.9.0, v0.9.0-rc1 is okay.
+
+> https://sourceforge.net/p/openocd/mailman/openocd-devel/thread/555B82B7.7010800%40suse.de/#msg34126255
+
+```
+Making all in doc
+restore=: && backupdir=".am$$" && \
+        am__cwd=`pwd` && CDPATH="${ZSH_VERSION+.}:" && cd . && \
+        rm -rf $backupdir && mkdir $backupdir && \
+        if (makeinfo --version) >/dev/null 2>&1; then \
+          for f in openocd.info openocd.info-[0-9] openocd.info-[0-9][0-9] openocd.i[0-9] openocd.i[0-9][0-9]; do \
+            if test -f $f; then mv $f $backupdir; restore=mv; else :; fi; \
+          done; \
+        else :; fi && \
+        cd "$am__cwd"; \
+        if makeinfo   -I . \
+         -o openocd.info openocd.texi; \
+        then \
+          rc=0; \
+          CDPATH="${ZSH_VERSION+.}:" && cd .; \
+        else \
+          rc=$?; \
+          CDPATH="${ZSH_VERSION+.}:" && cd . && \
+          $restore $backupdir/* `echo "./openocd.info" | sed 's|[^/]*$||'`; \
+        fi; \
+        rm -rf $backupdir; exit $rc
+openocd.texi:8463: Unknown command `raggedright'.
+openocd.texi:8468: Bad argument `raggedright' to `@end', using `table'.
+openocd.texi:8468: @item found outside of an insertion block.
+openocd.texi:8470: @item found outside of an insertion block.
+openocd.texi:8472: @item found outside of an insertion block.
+openocd.texi:8475: @item found outside of an insertion block.
+openocd.texi:8478: Unmatched `@end'.
+makeinfo: Removing output file `openocd.info' due to errors; use --force to preserve.
+make[2]: *** [openocd.info] Error 1
+make[1]: *** [all-recursive] Error 1
+make: *** [all] Error 2
 ```
 
 
