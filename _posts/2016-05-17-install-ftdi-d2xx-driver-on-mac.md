@@ -35,6 +35,14 @@ $ sudo cp -f Samples/ftd2xx.h /usr/local/include/
 $ sudo cp -f Samples/WinTypes.h /usr/local/include/
 ```
 
+## Issue
+
+Even with direct driver installed without any error, My Mac (OS X 10.11) doesn't recognize FTDI device.
+Found an article with the similar issue: [Empty serial port details on OS X 10.11 (El Capitan) Beta 3](https://github.com/voodootikigod/node-serialport/issues/552).
+Not investigate yet.
+
+> TODO
+
 ## Reference
 
 - [FTDI D2XX Drivers](http://www.ftdichip.com/Drivers/D2XX.htm)
