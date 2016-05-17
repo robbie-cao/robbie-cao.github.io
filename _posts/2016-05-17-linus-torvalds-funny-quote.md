@@ -3,7 +3,7 @@ layout: post
 categories: linux kernel
 ---
 
-Linus Torvalds funny qutoes from [WikiQuote](https://en.wikiquote.org/wiki/Linus_Torvalds).
+Linus Torvalds funny qutoes from [Wikiquote](https://en.wikiquote.org/wiki/Linus_Torvalds).
 
 - Talk is cheap. Show me the code.
 - Hey, that's not a bug, that's a feature!
@@ -16,4 +16,6 @@ Linus Torvalds funny qutoes from [WikiQuote](https://en.wikiquote.org/wiki/Linus
 - I like offending people, because I think people who get offended should be offended.
 - Nvidia, fuck you!
 - I wish everybody was as nice as I am.
+
+Original: https://en.wikiquote.org/wiki/Linus_Torvalds
 
