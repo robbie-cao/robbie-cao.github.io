@@ -23,6 +23,17 @@ drivers need either one of:
 - ftd2xx: http://www.ftdichip.com/Drivers/D2XX.htm (proprietary,
   GPL-incompatible)
 
+> Refer to [Installed FTDI D2XX Driver and Library on Mac](http://robbie-cao.github.io/blog/2016/05/17/install-ftdi-d2xx-driver-on-mac).
+
+USB-based adapters depend on libusb-1.0 and some older drivers require
+libusb-0.1 or libusb-compat-0.1. A compatible implementation, such as
+FreeBSD's, additionally needs the corresponding .pc files.
+
+```
+$ brew install libusb
+```
+
+
 ## Download Source
 
 ```
