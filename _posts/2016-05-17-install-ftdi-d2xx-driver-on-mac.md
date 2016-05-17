@@ -38,8 +38,14 @@ $ sudo cp -f Samples/WinTypes.h /usr/local/include/
 ## Issue
 
 Even with direct driver installed without any error, My Mac (OS X 10.11) doesn't recognize FTDI device.
+The device does not appear in the /dev directory.
+
 Found an article with the similar issue: [Empty serial port details on OS X 10.11 (El Capitan) Beta 3](https://github.com/voodootikigod/node-serialport/issues/552).
-Not investigate yet.
+Not investigate this discussion yet.
+
+And another article - [How to Install FTDI Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/mac).
+
+Yet anther article - [OS X Mavericks (10.9): USB/Serial Driver Setup](http://ewen.mcneill.gen.nz/blog/entry/2014-05-25-os-x-mavericks-usb-serial/).
 
 > TODO
 
