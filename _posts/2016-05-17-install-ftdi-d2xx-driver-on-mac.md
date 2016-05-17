@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installed FTDI D2XX Driver and Library on Mac
+title: Install FTDI D2XX Driver and Library on Mac
 categories: embedded
 ---
 

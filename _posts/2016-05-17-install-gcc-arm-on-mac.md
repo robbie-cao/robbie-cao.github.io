@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installed GCC ARM on Mac
+title: Install GCC ARM on Mac
 categories: embedded
 ---
 
