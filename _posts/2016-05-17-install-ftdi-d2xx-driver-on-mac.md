@@ -44,7 +44,9 @@ Found an article with the similar issue: [Empty serial port details on OS X 10.1
 
 And another article - [How to Install FTDI Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/mac).
 
-Yet anther article - [OS X Mavericks (10.9): USB/Serial Driver Setup](http://ewen.mcneill.gen.nz/blog/entry/2014-05-25-os-x-mavericks-usb-serial/).
+Yet another article - [OS X Mavericks (10.9): USB/Serial Driver Setup](http://ewen.mcneill.gen.nz/blog/entry/2014-05-25-os-x-mavericks-usb-serial/).
+
+Yet another article with detailed steps on OSX Leopard (10.5.8) - [Installing FTDI USB Serial Driver on Mac](http://dfusion.com.au/wiki/tiki-index.php?page=Installing+FTDI+USB+Serial+Driver+on+Mac)
 
 Not investigate this discussion yet.
 
@@ -55,4 +57,5 @@ Not investigate this discussion yet.
 - [FTDI D2XX Drivers](http://www.ftdichip.com/Drivers/D2XX.htm)
 - [FTDI Drivers Installation guide for MAC OS X](http://www.ftdichip.com/Support/Documents/AppNotes/AN_134_FTDI_Drivers_Installation_Guide_for_MAC_OSX.pdf)
 - [D2XX Programmer's Guide](http://www.ftdichip.com/Support/Documents/ProgramGuides/D2XX_Programmer's_Guide(FT_000071).pdf)
+- [Introducing the Apple AppleUSBFTDI kernel driver](https://developer.apple.com/library/mac/technotes/tn2315/_index.html)
 
