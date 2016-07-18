@@ -184,7 +184,7 @@ categories: developer
 
 <div style="page-break-after: always;"></div>
 
-![Books](books.jpg)
+![Books](/images/books.jpg)
 
 <div style="page-break-after: always;"></div>
 
