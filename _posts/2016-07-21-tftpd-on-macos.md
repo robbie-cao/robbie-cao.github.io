@@ -31,5 +31,23 @@ To start tftpd:
 sudo launchctl start com.apple.tftpd
 ```
 
+Test tftpd server:
+
+```
+# put a file into tftpd folder first of all
+# tftpd root folder:
+# Linux : /var/lib/tftpboot/
+# Mac OS: /private/tftpboot/
+
+$ tftp localhost
+tftp> status
+Connected to localhost.
+Mode: netascii Verbose: off Tracing: off
+Rexmt-interval: 5 seconds, Max-timeout: 25 seconds
+tftp> get m1
+Received 4225655 bytes in 0.6 seconds
+tftp> quit
+```
+
 > https://wiki.openwrt.org/doc/howto/generic.flashing.tftp#tftpd_server_on_mac_os_x_lion
 
