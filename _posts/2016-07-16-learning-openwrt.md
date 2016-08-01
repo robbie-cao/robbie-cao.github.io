@@ -48,7 +48,7 @@ OpenWrt's goals:
 
 ## OpenWrt Operating System Architecture
 
-![Operating System Architecture Compare](https://github.com/robbie-cao/learning-openwrt/blob/master/images/openwrt_os_arch_compare.png)
+![Operating System Architecture Compare](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/openwrt_os_arch_compare.png)
 
 > https://wiki.openwrt.org/doc/techref/procd
 >
@@ -299,7 +299,7 @@ CAUTION: In addition to all else, this will erase your build configuration (<bui
 
 ### Overview
 
-![OpenWrt Buildroot Source Tree](https://github.com/robbie-cao/learning-openwrt/blob/master/images/openwrt_buildroot_source_tree.png)
+![OpenWrt Buildroot Source Tree](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/openwrt_buildroot_source_tree.png)
 
 > The folders in the second lines are generated during compilation.
 
@@ -345,7 +345,7 @@ The main Makefile performs the following steps (once the configuration is done):
 
 ### Package Infrastructures
 
-![Package Infrastructures](https://github.com/robbie-cao/learning-openwrt/blob/master/images/buildroot_package_infrastructures.png)
+![Package Infrastructures](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/buildroot_package_infrastructures.png)
 
 - Each software component to be built by Buildroot comes with its own build system.
 - Buildroot does not re-invent the build system of each component, it simply uses it.
@@ -355,7 +355,7 @@ The main Makefile performs the following steps (once the configuration is done):
 
 ### Workflow
 
-![Generic Package Infrastructures](https://github.com/robbie-cao/learning-openwrt/blob/master/images/buildroot_generic_package_steps.png)
+![Generic Package Infrastructures](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/buildroot_generic_package_steps.png)
 
 - To be used for software components having non-standard build systems.
 - Implements a default behavior for the downloading, extracting and patching steps of the package build process.
@@ -364,7 +364,7 @@ The main Makefile performs the following steps (once the configuration is done):
 
 ### Build System Architecture
 
-![Embedded Linux Build Systrem Principle](https://github.com/robbie-cao/learning-openwrt/blob/master/images/buildroot_principle.png)
+![Embedded Linux Build Systrem Principle](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/buildroot_principle.png)
 
 ### Package Build Example
 
@@ -390,11 +390,11 @@ The main Makefile performs the following steps (once the configuration is done):
       LDCONFIG=true install
   ```
 
-![Package Build Example](https://github.com/robbie-cao/learning-openwrt/blob/master/images/buildroot_package_sequence.png)
+![Package Build Example](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/buildroot_package_sequence.png)
 
 ### When You Run Make...
 
-![When You Run Make Example](https://github.com/robbie-cao/learning-openwrt/blob/master/images/buildroot_make_example.png)
+![When You Run Make Example](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/buildroot_make_example.png)
 
 > http://free-electrons.com/doc/training/buildroot/buildroot-slides.pdf
 
@@ -1734,7 +1734,7 @@ In OpenWRT, following are the processes happen on Init process:
 
 #### Compare with Ubuntu and Android
 
-![Ubuntu and Android Boot Sequence](https://github.com/robbie-cao/learning-openwrt/blob/master/images/boot-sequence-ubuntu-android.jpg)
+![Ubuntu and Android Boot Sequence](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/boot-sequence-ubuntu-android.jpg)
 
 
 ## How To
@@ -1761,7 +1761,7 @@ In OpenWRT, following are the processes happen on Init process:
 
 ### OpenWrt Filesystem and Memory
 
-![OpenWrt Filesystem and Memory](https://github.com/robbie-cao/learning-openwrt/blob/master/images/openwrt_fs_memory.png)
+![OpenWrt Filesystem and Memory](https://raw.githubusercontent.com/robbie-cao/learning-openwrt/master/images/openwrt_fs_memory.png)
 
 - / this is your entire root filesystem, it comprises /rom and /overlay. Please ignore /rom and /overlay and use exclusively / for your daily routines!
 - /rom contains all the basic files, like busybox, dropbear or iptables. It also includes default configuration files used when booting into OpenWrt Failsafe mode. It does not contain the Linux kernel. All files in this directory are located on the SqashFS partition, and thus cannot be altered or deleted. But, because we use overlay_fs filesystem, so called overlay-whiteout-symlinks can be created on the JFFS2 partition.
