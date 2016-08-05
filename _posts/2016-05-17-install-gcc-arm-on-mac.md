@@ -10,11 +10,11 @@ categories: embedded
 
 2. Install GCC ARM Toolchain
 
-    ```
-    brew tap PX4/homebrew-px4
-    brew update
-    brew install gcc-arm-none-eabi-48
-    ```
+   ```
+   brew tap PX4/homebrew-px4
+   brew update
+   brew install gcc-arm-none-eabi-48
+   ```
 
 3. Profit!
 
@@ -25,9 +25,11 @@ categories: embedded
 
 ## Misc
 
-Someone mentions below method. Not verified yet.
+Someone mentions below method. **NOT VERIFIED**.
 
-    brew cask install gcc-arm-embedded
+   ```
+   brew cask install gcc-arm-embedded
+   ```
 
 
 ## Reference
