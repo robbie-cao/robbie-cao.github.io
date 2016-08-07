@@ -43,3 +43,9 @@ taghl_config.txt
 _site
 .sass-cache
 ~$*
+.DS_Store
+.*.swp
+.idea
+.sass-cache/
+*~
+bourbon/

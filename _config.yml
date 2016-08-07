@@ -1,66 +1,53 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Jekyll configuration
 
-# Site Settings
-title: Tempus fugit!
-email: robbie.cao@gmail.com
-description: >          # '>' means to ignore newlines until "baseurl:"
-    Robbie Cao's Blog
-# Above text will appear in your document head meta (for
-# Google search results) and in your feed.xml site description.
-baseurl: ""                         # Subpath of site, e.g. /blog
-url: "http://robbie-cao.github.io"  # Base hostname & protocol for site
-twitter_username: robbie_cao
-github_username:  robbie-cao
+name: Pavel Makhov
+description: Software Developer
 
-# Build Settings
+url: http://streetturtle.github.io
+#url: http://localhost:4000
+
+# For a project page here should be a project name. Otherwise (for user's/organizaion's page leave it empty)
+baseurl:
+
+social:
+  github: streetturtle
+  stackoverflow: streetturtle
+  linkedin: streetturtle
+  codepen: streetturtle
+  instagram: streetturtle
+  lastfm: streetturtle
+  rss: feed.xml
+
+share:
+  facebook: true
+  twitter: true
+  gplus: true
+  linkedin: true
+  pinterest:
+  email: true
+
+
+# Google Analytics key, leave blank to ignore
+google_analytics_key: UA-57641651-1
+# Yandex metrika (https://metrica.yandex.com/) leave blanc to ignore or put true to use
+yandex_metrika: true
+
+# Set this to your disqus shortname to enable comments. Note that the 'comments'
+# setting below must also be true. Individual posts can override 'comments' to
+# disable on a post-by-post basis
+disqus: streetturtle
+comments: true
+
+permalink: /:year/:month/:title
+gems: [jekyll-paginate]
+paginate: 10
+
+#highlighter: rouge
+#markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 markdown: kramdown
-
-# Blog Settings
-permalink: /blog/:year/:month/:day/:title
-
-# Default Setting for GitHub (Can be Changed)
-github: [metadata]
 kramdown:
-    input: GFM
-    hard_wrap: false
-    auto_ids: true
-    footnote_nr: 1
-    entity_output: as_char
-    toc_levels: 1..6
-    smart_quotes: lsquo,rsquo,ldquo,rdquo
-# Customized Setting for kramdown
-    coderay_default_lang: c
-gems:
-    - jekyll-coffeescript
-    - jekyll-paginate
-    - jekyll-textile-converter
-    - jekyll-rst
-    - jekyll-toc
-    - jekyll-tagging
-    - jekyll_figure
-    - jekyll-mentions
-    - jekyll-redirect-from
-    - jekyll-sitemap
-    - jekyll-feed
-    - jekyll-gist
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
 
-
-# Markdown Extension
-markdown_ext: "markdown,mdown,md"
-
-# Textile Extension
-textile_ext: "textile,txtl,tl"
-
-# Default Setting for GitHub (Cannot be Changed)
-lsi: false
-safe: true
-source: 
-incremental: false
-highlighter: rouge
-gist:
-    noscript: false
+exclude: ['README.md', 'LICENSE']
