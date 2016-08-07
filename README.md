@@ -3,7 +3,7 @@
 ## Introduction
 
 [Robbie Cao](mailto: robbie.cao@gmail.com)'s Blog by Jekyll.
-Reuse [jekyll-clean-dark](https://github.com/streetturtle/jekyll-clean-dark) theme by @streetturtule.
+Reuse [jekyll-clean-dark](https://github.com/streetturtle/jekyll-clean-dark) theme by [Pavel Makhov](https://github.com/streetturtle).
 
 ## Setup
 
