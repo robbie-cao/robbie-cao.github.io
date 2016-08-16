@@ -63,10 +63,8 @@ Then add the following lines to `hooks/post-receive`
 git push --quiet origin &
 ```
 
+## Reference
 
-
-> http://www.pragmatic-source.com/en/opensource/tips/automatic-synchronization-2-git-repositories
-
-> https://www.chiliproject.org/projects/chiliproject/wiki/HowTo_mirror_your_git_repository_on_Github
-
-> https://support.asperasoft.com/hc/en-us/articles/216127358-How-to-run-a-cron-job-every-5-minutes
+- http://www.pragmatic-source.com/en/opensource/tips/automatic-synchronization-2-git-repositories
+- https://www.chiliproject.org/projects/chiliproject/wiki/HowTo_mirror_your_git_repository_on_Github
+- https://support.asperasoft.com/hc/en-us/articles/216127358-How-to-run-a-cron-job-every-5-minutes
