@@ -54,8 +54,6 @@ OpenWrt's goals:
 >
 > https://wiki.openwrt.org/inbox/procd-init-scripts
 
-## Download
-
 ## Branch and Codename
 
 The code names of OpenWrt branches are named after alcoholic beverages, usually including their recipes in the MOTD as well, cf. White Russian, Kamikaze, Backfire, Attitude Adjustment, Barrier Breaker.
@@ -74,27 +72,47 @@ Attitude Adjustment | 12.09      |
 
 ## Build
 
+### Toolchain
+
+OpenWrt build system is the buildsystem for the OpenWrt Linux distribution. OpenWrt build system works on Linux, BSD or MacOSX operating system. A case-sensitive filesystem is required.
+
+It is recommended that you use a **Linux** distribution (Debian or Ubuntu), either a standalone installation or one running in a virtual environment (VirtualBox or VMware).
+
+```
+sudo apt-get update
+sudo apt-get install git-core build-essential libssl-dev libncurses5-dev unzip gawk
+sudo apt-get install subversion mercurial
+```
+
+> https://wiki.openwrt.org/doc/howto/buildroot.exigence
+
+### Download
+
+```
+git clone https://git.openwrt.org/openwrt.git
+```
+
 ### Quick Start
 
-  ```
-  $ ./scripts/feeds update -a
-  $ ./scripts/feeds install -a
-  $ make menuconfig           # config target options for most cases
-  $ make [-jN] [V=scw]        # -jN optional, N is the number of cpu cores, V=s/c/w for warning, errors and tracing
+```
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
+$ make menuconfig           # config target options for most cases
+$ make [-jN] [V=scw]        # -jN optional, N is the number of cpu cores, V=s/c/w for warning, errors and tracing
 
-  The parameter V=x specifies level of messages in the process of the build.
-      V=99 and V=1 are now deprecated in favor of a new verbosity class system,
-      though the old flags are still supported.
-      You can set the V variable on the command line (or OPENWRT_VERBOSE in the
-      environment) to one or more of the following characters:
+The parameter V=x specifies level of messages in the process of the build.
+V=99 and V=1 are now deprecated in favor of a new verbosity class system,
+though the old flags are still supported.
+You can set the V variable on the command line (or OPENWRT_VERBOSE in the
+environment) to one or more of the following characters:
 
       - s: stdout+stderr (equal to the old V=99)
       - c: commands (for build systems that suppress commands by default, e.g. kbuild, cmake)
       - w: warnings/errors only (equal to the old V=1)
-  ```
+      ```
 
-The OpenWrt build system is a set of Makefiles and patches that allows users to easily
-generate both a cross-compilation toolchain and a root filesystem for embedded systems.
+      The OpenWrt build system is a set of Makefiles and patches that allows users to easily
+      generate both a cross-compilation toolchain and a root filesystem for embedded systems.
 
 ### Build System Features
 - Makes it easy to port software
@@ -111,51 +129,51 @@ generate both a cross-compilation toolchain and a root filesystem for embedded s
 - Compile a package: package/foo/compile
 - Clean a package: package/foo/clean
 
-  ```
-  make[2] toolchain/install
-  make[3] -C toolchain install
-  make[2] target/compile
-  make[3] -C target compile
-  make[4] -C target/utils prepare
-  ```
+    ```
+    make[2] toolchain/install
+    make[3] -C toolchain install
+    make[2] target/compile
+    make[3] -C target compile
+    make[4] -C target/utils prepare
+    ```
 
-> https://wiki.openwrt.org/about/toolchain
+    > https://wiki.openwrt.org/about/toolchain
 
 ### Build Sequence
 
-  ```
-  tools - automake, autoconf, sed, cmake
-  toolchain/binutils - as, ld, ...
-  toolchain/gcc - gcc, g++, cpp, ...
-  target/linux - kernel modules
-  package - core and feed packages
-  target/linux - kernel image
-  target/linux/image - firmware image file generation
-  ```
+```
+tools - automake, autoconf, sed, cmake
+toolchain/binutils - as, ld, ...
+toolchain/gcc - gcc, g++, cpp, ...
+target/linux - kernel modules
+package - core and feed packages
+target/linux - kernel image
+target/linux/image - firmware image file generation
+```
 
 ### Make Sequence
 
 Top command make world calls the following sequence of the commands:
 
-  ```
-  make target/compile
-  make package/cleanup
-  make package/compile
-  make package/install
-  make package/preconfig
-  make target/install
-  make package/index
-  ```
+```
+make target/compile
+make package/cleanup
+make package/compile
+make package/install
+make package/preconfig
+make target/install
+make package/index
+```
 
 You may run each command independency. For example, if the process of compilation of packages stops on error, you may fix the problem and next continue without cleanup:
 
-  ```
-  make package/compile
-  make package/install
-  make package/preconfig
-  make target/install
-  make package/index
-  ```
+```
+make package/compile
+make package/install
+make package/preconfig
+make target/install
+make package/index
+```
 
 > https://wiki.openwrt.org/doc/techref/buildroot
 
@@ -165,27 +183,27 @@ The OpenWrt project provides **two** main ways to get your software compiled for
 - The first option is to download and build the complete toolchain (buildroot)
 - The second is to download and/or build the SDK, a stripped down version of the toolchain intended to only build packages, and not firmware images.
 
-> https://github.com/MagnusS/p2p-dprd/wiki/BuildingOpenWrtPackages
+    > https://github.com/MagnusS/p2p-dprd/wiki/BuildingOpenWrtPackages
 
-> https://forum.openwrt.org/viewtopic.php?pid=31794#p31794
+    > https://forum.openwrt.org/viewtopic.php?pid=31794#p31794
 
 ### Usage Example
 
 #### Updating Feeds
 
-  ```
-  ./scripts/feeds update -a
-  ./scripts/feeds install -a
-  ./scripts/feeds install <PACKAGENAME>
-  ```
+```
+./scripts/feeds update -a
+./scripts/feeds install -a
+./scripts/feeds install <PACKAGENAME>
+```
 
 #### Config
 
-  ```
-  make menuconfig
-  -or-
-  make defconfig
-  ```
+```
+make menuconfig
+-or-
+make defconfig
+```
 
 - target:  `target/linux/<target>`, represent SoC line
     - target name
@@ -205,50 +223,50 @@ The OpenWrt project provides **two** main ways to get your software compiled for
     - different default packages
     - specific image headers
 
-> https://prplworks.files.wordpress.com/2015/10/openwrt-adding-new-soc.pdf
+        > https://prplworks.files.wordpress.com/2015/10/openwrt-adding-new-soc.pdf
 
 
-  ```
-  ./scripts/diffconfig.sh > diffconfig    # write the changes to diffconfig
-  cp diffconfig .config                   # write changes to .config
-  make defconfig                          # expand to full config
-  ```
+```
+./scripts/diffconfig.sh > diffconfig    # write the changes to diffconfig
+cp diffconfig .config                   # write changes to .config
+make defconfig                          # expand to full config
+```
 
-  ```
-  make kernel_menuconfig CONFIG_TARGET=subtarget  # -> kernel config, optional
-  ```
+```
+make kernel_menuconfig CONFIG_TARGET=subtarget  # -> kernel config, optional
+```
 
 #### Build Images
 
-  ```
-  make
-  -or-
-  make world
-  ```
+```
+make
+-or-
+make world
+```
 
 #### Clean Up
 
 **Clean**
 
-  ```
-  make clean
-  ```
+```
+make clean
+```
 
 deletes contents of the directories `/bin` and `/build_dir`. `make clean` does not remove the `toolchain`, it also avoids cleaning architectures/targets other than the one you have selected in your `.config`.
 
 **Dirclean**
 
-  ```
-  make dirclean
-  ```
+```
+make dirclean
+```
 
 deletes contents of the directories `/bin` and `/build_dir` and additionally `/staging_dir` and `/toolchain` (=the cross-compile tools) and `/logs`. 'dirclean' is your basic "full clean" operation.
 
 **Distclean**
 
-  ```
-  make distclean
-  ```
+```
+make distclean
+```
 
 nukes everything you have compiled or configured and also deletes all downloaded feeds contents and package sources.
 
@@ -256,38 +274,38 @@ CAUTION: In addition to all else, this will erase your build configuration (<bui
 
 **Clean Small Part**
 
-  ```
-  make target/linux/clean
-  make package/base-files/clean
-  make package/luci/clean
-  ```
+```
+make target/linux/clean
+make package/base-files/clean
+make package/luci/clean
+```
 
 #### Make Tips
 
 **Building Single Packages**
 
-  ```
-  make package/cups/compile V=s
-  make package/cups/{clean,compile,install} V=s   # for a rebuild
-  ```
+```
+make package/cups/compile V=s
+make package/cups/{clean,compile,install} V=s   # for a rebuild
+```
 
 **Spotting Build Errors**
 
-  ```
-  make V=s 2>&1 | tee build.log | grep -i error
-  ```
+```
+make V=s 2>&1 | tee build.log | grep -i error
+```
 
 **Getting Beep Notification**
 
-  ```
-  make V=s ; echo -e '\a'
-  ```
+```
+make V=s ; echo -e '\a'
+```
 
 **Skipping Failed Packages**
 
-  ```
-  IGNORE_ERRORS=1 make <make options>
-  ```
+```
+IGNORE_ERRORS=1 make <make options>
+```
 
 
 > https://wiki.openwrt.org/doc/howto/build
@@ -319,12 +337,18 @@ CAUTION: In addition to all else, this will erase your build configuration (<bui
 Simply speaking, once the OpenWrt buildroot has been properly configured, e.g.
 the target platform and architecture is specified, user-space packages selected, etc., the OpenWrt
 Buildroot will do the image building through the following steps (once the configuration is done):
+
 1. Download the cross-compilation tools, kernel headers, etc. and
-2. Set up the staging directory (staging_dir /). This is where the cross-compilation toolchain will be installed. If you want to use the same cross-compilation toolchain for other purposes, such as compiling third-party applications, you can find the cross-compiler tools in this directory, and then use arch-linux-gcc to compile your application.
-3. Create the download directory (dl/ by default). This is where the tarballs will be downloaded.
-4. Create the build directory (build_dir/). This is where all user-space tools while be compiled.
-5. Create the target directory (build_dir/target-arch/root by default) and the target filesystem skeleton. This directory will contain the final root filesystem.
-6. Install the user-space packages to the root file system and compress the whole root file system with proper format. The result firmware image is generated in bin/
+2. Set up the staging directory (`staging_dir/`).
+   This is where the cross-compilation toolchain will be installed. If you want to use the same cross-compilation toolchain for other purposes, such as compiling third-party applications, you can find the cross-compiler tools in this directory, and then use arch-linux-gcc to compile your application.
+3. Create the download directory (`dl/` by default).
+   This is where the tarballs will be downloaded.
+4. Create the build directory (`build_dir/`).
+   This is where all user-space tools while be compiled.
+5. Create the target directory (`build_dir/target-arch/root` by default) and the target filesystem skeleton.
+   This directory will contain the final root filesystem.
+6. Install the user-space packages to the root file system and compress the whole root file system with proper format.
+   The result firmware image is generated in `bin/`.
 
 > http://www.ccs.neu.edu/home/noubir/Courses/CS6710/S12/material/OpenWrt_Dev_Tutorial.pdf
 
@@ -338,7 +362,7 @@ Each directory contains at least 2 files:
 
 The main Makefile performs the following steps (once the configuration is done):
 - Create all the output directories: staging, target, build, etc. in the output directory (output/ by default, another value can be specified using O=)
-- Generate the toolchain target.When an internal toolchain is used, this means generating the cross-compilation toolchain. When an external toolchain is used, this means checking the features of the external toolchain and importing it into the Buildroot environment.
+- Generate the toolchain target. When an internal toolchain is used, this means generating the cross-compilation toolchain. When an external toolchain is used, this means checking the features of the external toolchain and importing it into the Buildroot environment.
 - Generate all the targets listed in the TARGETS variable. This variable is filled by all the individual components' Makefiles. Generating these targets will trigger the compilation of the userspace packages (libraries, programs), the kernel, the bootloader and the generation of the root filesystem images, depending on the configuration.
 
 > https://buildroot.org/downloads/manual/manual.html
@@ -398,46 +422,54 @@ The main Makefile performs the following steps (once the configuration is done):
 
 > http://free-electrons.com/doc/training/buildroot/buildroot-slides.pdf
 
+### Misc
+
+- Buildroot is really an integration utility. Once a package has been built, it is not rebuilt, even if its source code changes.
+- When working on the development of a component, it is usually more convenient to build it outside of Buildroot, for a quicker compile/test/debug cycle.
+- The upcoming source directory override feature, covered later, makes it easier to use Buildroot during development.
+
+> http://elinux.org/images/2/2a/Using-buildroot-real-project.pdf
+
 ## Config
 
 ### The UCI System
 
 The abbreviation UCI stands for Unified Configuration Interface and is intended to centralize the configuration of OpenWrt.
 
-  ```
-  Usage: uci [<options>] <command> [<arguments>]
+```
+Usage: uci [<options>] <command> [<arguments>]
 
-  Commands:
-          batch
-          export     [<config>]
-          import     [<config>]
-          changes    [<config>]
-          commit     [<config>]
-          add        <config> <section-type>
-          add_list   <config>.<section>.<option>=<string>
-          del_list   <config>.<section>.<option>=<string>
-          show       [<config>[.<section>[.<option>]]]
-          get        <config>.<section>[.<option>]
-          set        <config>.<section>[.<option>]=<value>
-          delete     <config>[.<section>[[.<option>][=<id>]]]
-          rename     <config>.<section>[.<option>]=<name>
-          revert     <config>[.<section>[.<option>]]
-          reorder    <config>.<section>=<position>
+Commands:
+batch
+export     [<config>]
+import     [<config>]
+changes    [<config>]
+commit     [<config>]
+add        <config> <section-type>
+add_list   <config>.<section>.<option>=<string>
+del_list   <config>.<section>.<option>=<string>
+show       [<config>[.<section>[.<option>]]]
+get        <config>.<section>[.<option>]
+set        <config>.<section>[.<option>]=<value>
+delete     <config>[.<section>[[.<option>][=<id>]]]
+rename     <config>.<section>[.<option>]=<name>
+revert     <config>[.<section>[.<option>]]
+reorder    <config>.<section>=<position>
 
-  Options:
-          -c <path>  set the search path for config files (default: /etc/config)
-          -d <str>   set the delimiter for list values in uci show
-          -f <file>  use <file> as input instead of stdin
-          -m         when importing, merge data into an existing package
-          -n         name unnamed sections on export (default)
-          -N         don't name unnamed sections
-          -p <path>  add a search path for config change files
-          -P <path>  add a search path for config change files and use as default
-          -q         quiet mode (don't print error messages)
-          -s         force strict mode (stop on parser errors, default)
-          -S         disable strict mode
-          -X         do not use extended syntax on 'show'
-  ```
+Options:
+-c <path>  set the search path for config files (default: /etc/config)
+-d <str>   set the delimiter for list values in uci show
+-f <file>  use <file> as input instead of stdin
+-m         when importing, merge data into an existing package
+-n         name unnamed sections on export (default)
+-N         don't name unnamed sections
+-p <path>  add a search path for config change files
+-P <path>  add a search path for config change files and use as default
+-q         quiet mode (don't print error messages)
+-s         force strict mode (stop on parser errors, default)
+-S         disable strict mode
+-X         do not use extended syntax on 'show'
+```
 
 #### UCI Data/Object Model
 
@@ -504,9 +536,9 @@ is responsible for defining *switch VLANs*, *interface configurations* and *netw
 
 After editing and saving /etc/config/network you need to execute
 
-  ```
-  /etc/init.d/network reload
-  ```
+```
+/etc/init.d/network reload
+```
 
 to stop and restart the network before any changes take effect. Rebooting the router is not necessary.
 
@@ -517,21 +549,21 @@ independent interfaces in the system although they share the same hardware.
 
 The example below shows a typical configuration:
 
-  ```
-  config 'switch' 'eth0'
-          option 'reset' '1'
-          option 'enable_vlan' '1'
+```
+config 'switch' 'eth0'
+option 'reset' '1'
+option 'enable_vlan' '1'
 
-  config 'switch_vlan' 'eth0_1'
-          option 'device' 'eth0'
-          option 'vlan' '1'
-          option 'ports' '0 1 2 3 5t'
+config 'switch_vlan' 'eth0_1'
+option 'device' 'eth0'
+option 'vlan' '1'
+option 'ports' '0 1 2 3 5t'
 
-  config 'switch_vlan' 'eth0_2'
-          option 'device' 'eth0'
-          option 'vlan' '2'
-          option 'ports' '4 5t'
-  ```
+config 'switch_vlan' 'eth0_2'
+option 'device' 'eth0'
+option 'vlan' '2'
+option 'ports' '4 5t'
+```
 
 #### Interfaces
 
@@ -541,11 +573,11 @@ they play a central role within the OpenWrt configuration concept.
 
 A minimal `interface` declaration consists of the following lines:
 
-  ```
-  config 'interface' 'wan'
-          option 'proto' 'dhcp'
-          option 'ifname' 'eth0.1'
-  ```
+```
+config 'interface' 'wan'
+option 'proto' 'dhcp'
+option 'ifname' 'eth0.1'
+```
 
 - wan is a unique logical interface name
 - dhcp specifies the interface protocol, DHCP in this example
@@ -571,75 +603,75 @@ Alias sections can be used to define further IPv4 and IPv6 addresses for interfa
 
 A minimal alias definition for a bridged interface might be (for a scenario without vlans):
 
-  ```
-  config interface lan
-          option 'ifname' 'eth0'
-          option 'type' 'bridge'
-          option 'proto' 'static'
-          option 'ipaddr' '192.168.1.1'
-          option 'netmask' '255.255.255.0'
-  ```
+```
+config interface lan
+option 'ifname' 'eth0'
+option 'type' 'bridge'
+option 'proto' 'static'
+option 'ipaddr' '192.168.1.1'
+option 'netmask' '255.255.255.0'
+```
 
-  ```
-  config interface lan2
-         option 'ifname' 'br-lan'
-         option 'proto' 'static'
-         option 'ipaddr' '10.0.0.1'
-         option 'netmask' '255.255.255.0'
-  ```
+```
+config interface lan2
+option 'ifname' 'br-lan'
+option 'proto' 'static'
+option 'ipaddr' '10.0.0.1'
+option 'netmask' '255.255.255.0'
+```
 
 or for a non-bridge interface
 
-  ```
-  config interface lan
-          option 'ifname' 'eth0'
-          option 'proto' 'static'
-          option 'ipaddr' '192.168.1.1'
-          option 'netmask' '255.255.255.0'
-  ```
+```
+config interface lan
+option 'ifname' 'eth0'
+option 'proto' 'static'
+option 'ipaddr' '192.168.1.1'
+option 'netmask' '255.255.255.0'
+```
 
-  ```
-  config interface lan2
-         option 'ifname' 'eth0'
-         option 'proto' 'static'
-         option 'ipaddr' '10.0.0.1'
-         option 'netmask' '255.255.255.0'
-  ```
+```
+config interface lan2
+option 'ifname' 'eth0'
+option 'proto' 'static'
+option 'ipaddr' '10.0.0.1'
+option 'netmask' '255.255.255.0'
+```
 
 #### Examples
 
 **Bridge without IP**
 
-  ```
-  config 'interface' 'example'
-          option 'type'    'bridge'
-          option 'proto'   'none'
-          option 'ifname'  'eth0 eth1'
-          option 'auto'    '1'
-  ```
+```
+config 'interface' 'example'
+option 'type'    'bridge'
+option 'proto'   'none'
+option 'ifname'  'eth0 eth1'
+option 'auto'    '1'
+```
 
 **DHCP without default gateway**
 
-  ```
-  config 'interface' 'example'
-          option 'proto'   'dhcp'
-          option 'ifname'  'eth0'
-          option 'defaultroute' '0'
-  ```
+```
+config 'interface' 'example'
+option 'proto'   'dhcp'
+option 'ifname'  'eth0'
+option 'defaultroute' '0'
+```
 
 **Static IP configuration with multiple dnses**
 
-  ```
-  config 'interface' 'example'
-          option 'proto'     'static'
-          option 'ifname'    'eth0'
-          option 'ipaddr'    '192.168.1.200'
-          option 'netmask'   '255.255.255.0'
-          list   'dns'       '192.168.1.1'
-          list   'dns'       '192.168.10.1'
-          # the priority is: the last dns listed will be the first one
-          # to be chosen for the name resolution.
-  ```
+```
+config 'interface' 'example'
+option 'proto'     'static'
+option 'ifname'    'eth0'
+option 'ipaddr'    '192.168.1.200'
+option 'netmask'   '255.255.255.0'
+list   'dns'       '192.168.1.1'
+list   'dns'       '192.168.10.1'
+# the priority is: the last dns listed will be the first one
+# to be chosen for the name resolution.
+```
 
 > https://wiki.openwrt.org/doc/uci/network
 
@@ -649,6 +681,91 @@ or for a non-bridge interface
 
 ### feeds
 
+In OpenWrt, a "feed" is a collection of packages which share a common location. Feeds may reside on a remote server, in a version control system, on the local filesystem, or in any other location addressable by a single name (path/URL) over a protocol with a supported feed method.
+
+The list of usable feeds is configured from the feeds.conf file (or feeds.conf.default when feeds.conf does not exist). This file contains a list of feeds, one per line, and any number of empty lines. Comments begin with # and extend to the end of a line and are ignored during parsing. Each feed line consists of 3 whitespace-separated components: The feed method, the feed name, and the feed source.
+
+Example:
+
+```
+src-git packages https://github.com/openwrt/packages.git
+src-git luci http://git.openwrt.org/project/luci.git
+src-git routing https://github.com/openwrt-routing/packages.git
+src-git telephony http://git.openwrt.org/feed/telephony.git
+src-git management https://github.com/openwrt-management/packages.git
+#src-git oldpackages http://git.openwrt.org/packages.git
+#src-svn xwrt http://x-wrt.googlecode.com/svn/trunk/package
+#src-svn phone svn://svn.openwrt.org/openwrt/feeds/phone
+#src-svn efl svn://svn.openwrt.org/openwrt/feeds/efl
+#src-svn xorg svn://svn.openwrt.org/openwrt/feeds/xorg
+#src-svn desktop svn://svn.openwrt.org/openwrt/feeds/desktop
+#src-svn xfce svn://svn.openwrt.org/openwrt/feeds/xfce
+#src-svn lxde svn://svn.openwrt.org/openwrt/feeds/lxde
+#src-link custom /usr/src/openwrt/custom-feed
+```
+
+```
+src-git packages https://github.com/reponame/packages.git;special_branch
+src-git packages https://github.com/reponame/packages.git^commithash
+```
+
+The following methods are supported:
+
+Method     | Function
+---        | ---
+src-bzr    | Data is downloaded from the source path/URL using bzr
+src-cpy    | Data is copied from the source path
+src-darcs  | Data is downloaded from the source path/URL using darcs
+src-git    | Data is downloaded from the source path/URL using git. 1) 2)
+src-gitsvn | Bidirectional operation between a Subversion repository and git
+src-hg     | Data is downloaded from the source path/URL using hg
+src-link   | A symlink to the source path is created
+src-svn    | Data is downloaded from the source path/URL using svn
+
+Feed commands:
+- clean
+- install
+- list
+- search
+- uninstall
+- update
+
+    ```
+    Usage: scripts/feeds <command> [options]
+
+    Commands:
+    list [options]: List feeds, their content and revisions (if installed)
+    Options:
+    -n :            List of feed names.
+    -s :            List of feed names and their URL.
+    -r <feedname>:  List packages of specified feed.
+    -d <delimiter>: Use specified delimiter to distinguish rows (default: spaces)
+    -f :            List feeds in feeds.conf compatible format (when using -s).
+
+    install [options] <package>: Install a package
+    Options:
+    -a :           Install all packages from all feeds or from the specified feed using the -p option.
+    -p <feedname>: Prefer this feed when installing packages.
+    -d <y|m|n>:    Set default for newly installed packages.
+    -f :           Install will be forced even if the package exists in core OpenWrt (override)
+
+    search [options] <substring>: Search for a package
+    Options:
+    -r <feedname>: Only search in this feed
+
+    uninstall -a|<package>: Uninstall a package
+    Options:
+    -a :           Uninstalls all packages.
+
+    update -a|<feedname(s)>: Update packages and lists of feeds in feeds.conf .
+    Options:
+    -a :           Update all feeds listed within feeds.conf. Otherwise the specified feeds will be updated.
+               -i :           Recreate the index only. No feed update from repository is performed.
+
+          clean:             Remove downloaded/generated files.
+  ```
+
+> https://wiki.openwrt.org/doc/devel/feeds
 ### scripts
 
 ### dl
@@ -1774,42 +1891,72 @@ In OpenWRT, following are the processes happen on Init process:
 
 ### Restore ART Partition
 
-  ```
-  mtd -r write /tmp/art.backup.bin factory
-  ```
+```
+mtd -r write /tmp/art.backup.bin factory
+```
 
 `mtd` usage:
 
-  ```
-  Usage: mtd [<options> ...] <command> [<arguments> ...] <device>[:<device>...]
+```
+Usage: mtd [<options> ...] <command> [<arguments> ...] <device>[:<device>...]
 
-  The device is in the format of mtdX (eg: mtd4) or its label.
-  mtd recognizes these commands:
-          unlock                  unlock the device
-          refresh                 refresh mtd partition
-          erase                   erase all data on device
-          verify <imagefile>|-    verify <imagefile> (use - for stdin) to device
-          write <imagefile>|-     write <imagefile> (use - for stdin) to device
-          jffs2write <file>       append <file> to the jffs2 partition on the device
-          fixseama                fix the checksum in a seama header on first boot
-  Following options are available:
-          -q                      quiet mode (once: no [w] on writing,
-                                             twice: no status messages)
-          -n                      write without first erasing the blocks
-          -r                      reboot after successful command
-          -f                      force write without trx checks
-          -e <device>             erase <device> before executing the command
-          -d <name>               directory for jffs2write, defaults to "tmp"
-          -j <name>               integrate <file> into jffs2 data when writing an image
-          -s <number>             skip the first n bytes when appending data to the jffs2 partiton, defaults to "0"
-          -p                      write beginning at partition offset
-          -l <length>             the length of data that we want to dump
+The device is in the format of mtdX (eg: mtd4) or its label.
+mtd recognizes these commands:
+unlock                  unlock the device
+refresh                 refresh mtd partition
+erase                   erase all data on device
+verify <imagefile>|-    verify <imagefile> (use - for stdin) to device
+write <imagefile>|-     write <imagefile> (use - for stdin) to device
+jffs2write <file>       append <file> to the jffs2 partition on the device
+fixseama                fix the checksum in a seama header on first boot
+Following options are available:
+-q                      quiet mode (once: no [w] on writing,
+twice: no status messages)
+-n                      write without first erasing the blocks
+-r                      reboot after successful command
+-f                      force write without trx checks
+-e <device>             erase <device> before executing the command
+-d <name>               directory for jffs2write, defaults to "tmp"
+-j <name>               integrate <file> into jffs2 data when writing an image
+-s <number>             skip the first n bytes when appending data to the jffs2 partiton, defaults to "0"
+-p                      write beginning at partition offset
+-l <length>             the length of data that we want to dump
 
-  Example: To write linux.trx to mtd4 labeled as linux and reboot afterwards
-           mtd -r write linux.trx linux
-  ```
+Example: To write linux.trx to mtd4 labeled as linux and reboot afterwards
+mtd -r write linux.trx linux
+```
 
 > https://wiki.openwrt.org/doc/howto/restore_art_partition
+
+### Integrate Kernel Git Repo in OpenWrt Environment
+
+The OpenWrt build system supports pulling a kernel from a git repository, or
+even using an "external" kernel directory. In order to use these features, run
+the following:
+
+```
+make menuconfig
+-> Advanced configuration options (for developers)
+-> Use external kernel tree
+-or-
+-> Enter git repository to clone
+```
+
+The string should contain the full git clone url.
+
+Note that the kernel version is being assumed as the kernel version
+specified in your target's Makefile, so you might want to adapt it.
+This is important for the paths for some kernel modules, as well as
+which `target/linux/*/config-<version>` get used for the kernel config.
+Also you need to apply OpenWrt patches by hand if you need them,
+especially if you want to build flashable images (for ramdisk images
+you usually don't need much, e.g. I can build and boot a vanilla linux
+bcm63xx ramdisk image if the kernel is new enough).
+
+Some packages also depend on OpenWrt kernel patches, like `iptables`.
+
+
+> http://openwrt-devel.openwrt.narkive.com/9ak1CBMO/integrate-kernel-git-repo-in-openwrt-environment
 
 ## Resources
 
