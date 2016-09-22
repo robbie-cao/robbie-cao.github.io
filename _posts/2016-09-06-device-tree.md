@@ -113,7 +113,7 @@ bootm kernel_addr initrd_addr dtb_addr
   * new: kernel_entry(0, mach_id, dtb_addr)
 - config
   * Boot options -> Flattened Device Tree support
-  * Device Drivers -> Device Tree and Open Firmware support -> Support for device tree in /prc
+  * Device Drivers -> Device Tree and Open Firmware support -> Support for device tree in /proc
 - device tree script
   * arch/arm/boot/dts
 - /proc/device-tree
@@ -129,11 +129,16 @@ scripts/dtc
 
 ## Reference
 
+- https://git.kernel.org/cgit/utils/dtc/dtc.git
 - http://elinux.org/Device_Tree
 - http://elinux.org/Device_Tree_Usage
+- http://elinux.org/Device_Tree_Reference
 - https://events.linuxfoundation.org/sites/events/files/slides/petazzoni-device-tree-dummies.pdf
 - http://xillybus.com/tutorials/device-tree-zynq-1
 - https://en.wikipedia.org/wiki/Device_tree
 - https://en.wikipedia.org/wiki/Open_Firmware
 - https://www.kernel.org/doc/Documentation/devicetree/
 - http://www.slideshare.net/softpapa/device-tree-support-on-arm-linux-8930303
+- http://free-electrons.com/pub/conferences/2013/elce/petazzoni-device-tree-dummies/petazzoni-device-tree-dummies.pdf
+- http://fossies.org/linux/qemu/dtc/Documentation/manual.txt
+- https://github.com/vagrantc/device-tree-compiler/blob/master/Documentation/dts-format.txt
